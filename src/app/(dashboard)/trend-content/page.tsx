@@ -366,8 +366,8 @@ ${coreContent.standardTreatments.map(item => `- ${item}`).join('\n')}
         title: newLocalItem.title,
         body: newLocalItem.body,
         content_type: newLocalItem.content_type,
-        stage: newLocalItem.stage,
-        status: newLocalItem.status,
+        stage: newLocalItem.stage as import('@/types/database').ContentStage,
+        status: newLocalItem.status as import('@/types/database').ContentStatus,
         keywords: newLocalItem.keywords,
         platform: newLocalItem.platform,
         author_id: userData?.user?.id || null

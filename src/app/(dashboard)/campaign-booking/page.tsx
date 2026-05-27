@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { CalendarDays, Megaphone, DollarSign, Users, Plus, GitFork, ArrowRight, Clock, Award, ShieldAlert, Check, Calendar, CalendarRange, Eye, Sparkles } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import type { LeadStatus } from '@/types/database'
 
 // Pre-defined Automation Rules
 const INITIAL_RULES = [
@@ -99,7 +100,7 @@ export default function CampaignBookingPage() {
   }
 
   // Move Lead Kanban status handler
-  const handleMoveStatus = async (leadId: string, nextStatus: 'new' | 'calling' | 'booked') => {
+  const handleMoveStatus = async (leadId: string, nextStatus: LeadStatus) => {
     try {
       const { error } = await supabase
         .from('leads')
